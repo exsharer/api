@@ -50,7 +50,7 @@ var schema = {
             description: "Enter middle name",
             type: 'string',
             require: false
-        }
+        },
         last_name: {
             description: "Enter last name",
             type: 'string',
