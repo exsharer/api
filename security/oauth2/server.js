@@ -1,7 +1,7 @@
 "use strict";
 
-var Token   = app.dao.token
-,   User    = app.dao.user;
+var Token   = new app.dao.token()
+,   User    = new app.dao.user();
 
 // Create OAuth 2.0 Authorization Server
 var oauth2orize = app.utils.oauth2orize
@@ -12,11 +12,12 @@ var oauth2orize = app.utils.oauth2orize
 server.exchange(oauth2orize.exchange.password(
     function(client, username, password, scope, done) {
 
-        var user    = new User()
-        ,   token   = new Token();
-
-        user.login(username, password).then(function(user){
-            return user ? token.create(user._id, client._id) : false;
+        User.login(username, password).then(function(user){
+            if(!user) return false;
+            Token.token(user._id, client._id).then(function(token){
+                if(!token) return Token.create(user._id, client._id);
+                return token;
+            });
         }).then(function(token){
             done(null, token.access || false, token.refresh);
         }).catch(done);
@@ -28,11 +29,9 @@ server.exchange(oauth2orize.exchange.password(
 server.exchange(oauth2orize.exchange.refreshToken(
     function(client, refreshToken, scope, done) {
 
-        var token = new Token();
-
-        token.refresh(refreshToken).then(function(data){
+        Token.refresh(refreshToken).then(function(data){
             if(!data) return done(null, false);
-            return token.create(data.user, data.client);
+            return Token.create(data.user, data.client);
         }).catch(done);
 
     }
