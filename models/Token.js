@@ -46,7 +46,7 @@ module.exports = function(Schema, mongoose){
     });
 
     TokenSchema.pre('validate', function(next){
-        mongoose.models.Token.list().then(function(list) {
+        mongoose.model("Token").list().then(function(list) {
             app.utils.log.debug(list);
         });
 
