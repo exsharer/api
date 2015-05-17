@@ -16,6 +16,11 @@ module.exports = function(){
                 json.standard(data, res);
             }).catch(next);
         },
+        find: function (req, res, next) {
+            dao.find(req.params.id).then(function(data){
+                json.standard(data, res);
+            }).catch(next);
+        },
         create: function(req, res, next){
             dao.create(req.body).then(function(data){
                 json.standard(data, res);

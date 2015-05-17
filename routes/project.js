@@ -11,7 +11,22 @@ module.exports = function () {
             action: project.list,
             cors: true,
             public: true
-        }
+        },
+        {
+            method: 'get',
+            url: '/projects/:id',
+            action: project.find,
+            cors: true,
+            public: true
+        },
+        {
+            method: 'post',
+            url: '/projects',
+            action: project.create,
+            cors: true,
+            public: true
+        },
+
     ];
 
 };
