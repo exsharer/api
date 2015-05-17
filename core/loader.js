@@ -13,6 +13,7 @@ var q               = require('q')
 ,   checkFields     = require("../utils/checkFields")
 ,   objectInjector  = require('../utils/object-injector')
 
+,   geojson         = require('mongoose-geojson-schema')
 ,   private_paths   = require('mongoose-private-paths')
 ,   express         = require('express')
 ,   jsonfile        = require('jsonfile')
@@ -38,7 +39,8 @@ var utils = {
     objectInjector: objectInjector,
 
     mongoose: {
-        private: private_paths
+        private: private_paths,
+        geo: geojson
     },
 
     passport: passport,
