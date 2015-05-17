@@ -60,8 +60,8 @@ module.exports = function (Schema, mongoose) {
     };
 
     ProjectSchema.statics.delete = function(id){
-        return Q.nbind(this.findOne, this)({ _id: id }).then(function(client){
-            return Q.nbind(client.remove, client)();
+        return Q.nbind(this.findOne, this)({ _id: id }).then(function(project){
+            return Q.nbind(project.remove, project)();
         });
     };
 
