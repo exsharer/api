@@ -6,7 +6,7 @@ module.exports = function(){
         {
             method: 'get',
             url: '/users',
-            action: users.list,
+            action: user.list,
             cors: true
         },
         {
@@ -18,7 +18,7 @@ module.exports = function(){
         {
             method: 'post',
             url: '/users',
-            action: users.create,
+            action: user.create,
             cors: true
         }
     ];
