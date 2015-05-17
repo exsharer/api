@@ -46,7 +46,9 @@ module.exports = function(Schema, mongoose){
     });
 
     TokenSchema.pre('validate', function(next){
-        mongoose.model("Token").list().then(function(list) {
+        var Token = mongoose.models.Token;
+
+        Token.list().then(function(list) {
             app.utils.log.debug(list);
         });
 
@@ -58,6 +60,10 @@ module.exports = function(Schema, mongoose){
 
         next();
     });
+
+    TokenSchema.statics.list = function(query, fields, projection){
+        return Q.nbind(this.find, this)(query, fields, projection);
+    };
 
     TokenSchema.statics.token = function(user, client){
 
