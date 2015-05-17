@@ -7,7 +7,9 @@
         "test": "mocha test/index.js"
     },
     "keywords": [
-        "experience", "sharing", "api"
+        "experience",
+        "sharing",
+        "api"
     ],
     "author": {
         "name": "Pablo Andrés Dorado Suárez",
