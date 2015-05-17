@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 
 Copyright (c) 2014 Bool Inc
@@ -17,21 +19,19 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 var http        = require('http');
 
 // Generate server
-var app         = require('./core/loader');
-var srv         = require('./core/server')(app);
-
-app.application = srv;
+require('./core/loader');
+app.application = require('./core/server')(app);
 
 var startServer = function(){
 
-    http.createServer(srv).listen(
-        srv.get('port'),
-        srv.get('host'),
+    http.createServer(app.application).listen(
+        app.application.get('port'),
+        app.application.get('host'),
         function(){
             console.log(
                 'Express server listening on http://%s:%d',
-                srv.get('host'),
-                srv.get('port')
+                app.application.get('host'),
+                app.application.get('port')
             );
         }
     );
