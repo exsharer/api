@@ -58,8 +58,8 @@ var schema = {
             require: true
         },
         birthday: {
-            description: "Enter birthday (yyyy/MM/dd)",
-            type: 'date',
+            description: "Enter birthday (yyyy-mm-dd)",
+            type: 'string',
             message: "You must insert a valid birthday",
             require: true
         }
@@ -76,7 +76,7 @@ read(schema).then(function(result){
             last: result.last_name
         },
         password: result.password,
-        birthday: result.birthday
+        birthday: new Date(result.birthday)
     });
 }).then(function(result){
     console.log("User has been created\n%j", result);
