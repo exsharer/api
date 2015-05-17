@@ -2,6 +2,7 @@
     "strict": true,
     "unused": true,
     "undef": true,
+    "node": true,
     "laxcomma": true,
     "predef": [
         "app",

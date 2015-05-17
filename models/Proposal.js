@@ -1,9 +1,8 @@
 "use strict";
 
-module.exports = function (Schema, mongoose) {
+module.exports = function (Schema) {
 
-    var _   = app.utils._
-    ,   Q   = app.utils.q;
+    var Q   = app.utils.q;
 
     var ProposalSchema = new Schema({
         title: {
