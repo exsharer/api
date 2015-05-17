@@ -5,10 +5,9 @@ describe("Client module", function(){
 
     before(function(done){ Client.collection.remove(done); });
 
-    it("list an empty collection", function(done){
-        Dao.list().then(function(clients){
-            expect(clients).to.have.length(0);
-            done();
+    it("list an empty collection", function(){
+        return Dao.list().then(function(clients){
+            return expect(clients).to.have.length(0);
         }).catch(done);
     });
 
