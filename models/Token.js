@@ -50,6 +50,8 @@ module.exports = function(Schema, mongoose){
             app.utils.log.debug(list);
         });
 
+        app.utils.log.debug(this);
+
         var date = new Date(this.created);
         date.setSeconds(date.getSeconds() + lifetime);
         this.expires = date;
