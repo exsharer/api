@@ -1,0 +1,59 @@
+Set initial codebase
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch initial_codebase
+# Changes to be committed:
+# 	modified:   .gitignore
+# 	new file:   config/db.json
+# 	new file:   config/security.json
+# 	new file:   config/services.json
+# 	new file:   controllers/user.js
+# 	new file:   core/database.js
+# 	new file:   core/error.js
+# 	new file:   core/loader.js
+# 	new file:   core/router.js
+# 	new file:   core/routers/express.js
+# 	new file:   core/routers/finalstatuses.js
+# 	new file:   core/routers/mailer.js
+# 	new file:   core/routers/middleware.js
+# 	new file:   core/routers/oauth2.js
+# 	new file:   core/routers/socket.js
+# 	new file:   core/server.js
+# 	new file:   dao/client.js
+# 	new file:   dao/token.js
+# 	new file:   dao/user.js
+# 	new file:   index.js
+# 	new file:   models/Client.js
+# 	new file:   models/Token.js
+# 	new file:   models/User.js
+# 	modified:   package.json
+# 	new file:   routes/user.js
+# 	new file:   security/oauth2.js
+# 	new file:   security/oauth2/endpoint.js
+# 	new file:   security/oauth2/server.js
+# 	new file:   test/client.js
+# 	new file:   test/index.js
+# 	new file:   test/user.js
+# 	new file:   utils/api.js
+# 	new file:   utils/checkFields.js
+# 	new file:   utils/copy.js
+# 	new file:   utils/cors.js
+# 	new file:   utils/emitClient.js
+# 	new file:   utils/formidable.js
+# 	new file:   utils/hashes.js
+# 	new file:   utils/hotp.js
+# 	new file:   utils/log.js
+# 	new file:   utils/nodemailer.js
+# 	new file:   utils/object-injector.js
+# 	new file:   utils/salt.js
+# 	new file:   utils/string-replacer.js
+# 	new file:   utils/token.js
+# 	new file:   views/json.js
+# 
+# Changes not staged for commit:
+# 	modified:   core/error.js
+# 	modified:   dao/user.js
+# 	modified:   models/User.js
+# 	modified:   security/oauth2/server.js

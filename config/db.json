@@ -1,0 +1,26 @@
+{
+    "development": {
+        "host": "dbh04.mongolab.com",
+        "port": 27047,
+        "db": "exsharer-production",
+        "user": "exsharer",
+        "pass": "3xsh4r3r"
+    },
+
+    "test": {
+        "host": "ds029317.mongolab.com",
+        "port": 29317,
+        "db": "exsharer-test",
+        "user": "exsharer",
+        "pass": "3xsh4r3r"
+    },
+
+    "production": {
+        "host": "dbh04.mongolab.com",
+        "port": 27047,
+        "db": "exsharer-production",
+        "user": "exsharer",
+        "pass": "3xsh4r3r"
+    }
+
+}
