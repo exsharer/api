@@ -2,8 +2,8 @@
 
 module.exports = function(express){
 
-    var passport = app.utils.passport,
-        approutes = app.routes;
+    var passport    = app.utils.passport
+    ,   approutes   = app.routes;
 
     require('./middleware')(express);
 

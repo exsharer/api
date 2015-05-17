@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Schema, mongoose){
+module.exports = function(Schema){
 
     var Q       = app.utils.q
     ,   token   = app.utils.token;
