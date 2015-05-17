@@ -30,7 +30,13 @@ module.exports = function () {
             url: '/projects/:id',
             action: project.update,
             cors: true
-        }
+        },
+        {
+            method: 'delete',
+            url: '/projects/:id',
+            action: project.delete,
+            cors: true
+        },
     ];
 
 };
