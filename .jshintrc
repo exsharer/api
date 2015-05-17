@@ -1,0 +1,10 @@
+{
+    "strict": true,
+    "unused": true,
+    "undef": true,
+    "laxcomma": true,
+    "predef": [
+        "app",
+        "module"
+    ]
+}
