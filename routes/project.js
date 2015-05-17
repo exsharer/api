@@ -23,10 +23,14 @@ module.exports = function () {
             method: 'post',
             url: '/projects',
             action: project.create,
-            cors: true,
-            public: true
+            cors: true
         },
-
+        {
+            method: 'put',
+            url: '/projects/:id',
+            action: project.update,
+            cors: true
+        }
     ];
 
 };

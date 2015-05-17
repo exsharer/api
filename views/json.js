@@ -23,13 +23,20 @@ module.exports = function(){
 
     }
 
-    return {
+    var plugin = {
         standard: function(data, res){
             execute(null, data, res);
         },
         error: function(err, res){
             execute(err, null, res);
+        },
+        promise: function(action, res, next){
+            action.then(function(data){
+                plugin.standard(data, res);
+            }).catch(next);
         }
     };
+
+    return plugin;
 
 };
