@@ -15,7 +15,7 @@ module.exports = function(){
             return Token.insert(user, client);
         },
         refresh: function(refresh){
-            return Client.refresh(refresh);
+            return Token.refresh(refresh);
         }
     };
 
