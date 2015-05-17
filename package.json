@@ -55,10 +55,12 @@
     "underscore": "^1.6.0"
   },
   "devDependencies": {
-    "progress": "^1.1.8",
-    "expect.js": "^0.3.1",
     "async": "^0.9.0",
+    "chai": "^2.3.0",
+    "chai-as-promised": "^5.0.0",
+    "expect.js": "^0.3.1",
     "mocha": "^2.1.0",
+    "progress": "^1.1.8",
     "supertest": "^0.15.0"
   },
   "engines": {
