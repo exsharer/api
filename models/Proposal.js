@@ -61,6 +61,6 @@ module.exports = function (Schema, mongoose) {
         });
     };
 
-    return ProjectSchema;
+    return ProposalSchema;
 
 }
