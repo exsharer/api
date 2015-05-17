@@ -2,9 +2,9 @@
 
 module.exports = function(Schema, mongoose){
 
-    var salt    = app.config.security.salt
-    ,   Q       = app.utils.q
-    ,   bcrypt  = app.utils.bcrypt;
+    var Q       = app.utils.q
+    ,   bcrypt  = app.utils.bcrypt
+    ,   salt    = app.config.security.salt;
 
     var UserSchema = new Schema({
         username: {
