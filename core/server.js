@@ -14,7 +14,7 @@ module.exports = function(){
         next();
     });
     srv.set('host', process.env.IP || process.env.HOSTNAME || '0.0.0.0');
-    srv.set('port', process.env.PORT || 3006);
+    srv.set('port', process.env.PORT || 3010);
 
     srv.use(bodyParser.urlencoded({extended: true}));
     srv.use(bodyParser.json());
