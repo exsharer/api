@@ -21,7 +21,8 @@ module.exports = function(){
             method: 'post',
             url: '/users',
             action: user.create,
-            cors: true
+            cors: true,
+            public: true
         }
     ];
 
