@@ -50,8 +50,6 @@ module.exports = function(Schema, mongoose){
     UserSchema.pre('save', function(next){ var user = this;
         if(!user.isModified('password')) return next();
 
-        app.utils.log.debug(this);
-
         bcrypt.genSalt(function(err, salt){
             if(err) return next(err);
 
@@ -65,7 +63,7 @@ module.exports = function(Schema, mongoose){
 
     UserSchema.methods.login = function(password){
         return Q.nfcall(bcrypt.compare, password, this.password);
-    }
+    };
 
     UserSchema.statics.list = function(query, fields, projection){
         return Q.nbind(this.find, this)(query, fields, projection);
@@ -89,7 +87,7 @@ module.exports = function(Schema, mongoose){
 
     UserSchema.statics.delete = function(id){
         return Q.nbind(this.findOne, this)({ _id: id }).then(function(user){
-            return Q.nbind(client.remove, client)();
+            return Q.nbind(user.remove, user)();
         });
     };
 
