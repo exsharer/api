@@ -13,11 +13,7 @@ server.exchange(oauth2orize.exchange.password(
     function(client, username, password, scope, done) {
 
         User.login(username, password).then(function(user){
-            if(!user) return false;
-            Token.find(user._id, client._id).then(function(token){
-                if(!token) return Token.create(user._id, client._id);
-                return token;
-            });
+            return user ? Token.create(user._id, client._id) : false;
         }).then(function(token){
             done(null, token.access || false, token.refresh);
         }).catch(done);

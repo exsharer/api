@@ -23,14 +23,12 @@ module.exports = function(Schema){
         access: {
             type: String,
             unique: true,
-            required: true,
-            default: token(64)
+            required: true
         },
         refresh: {
             type: String,
             unique: true,
-            required: true,
-            default: token(64)
+            required: true
         },
         created: {
             type: Date,
@@ -47,6 +45,9 @@ module.exports = function(Schema){
         var date = new Date(this.created);
         date.setSeconds(date.getSeconds() + lifetime);
         this.expires = date;
+
+        this.access = token(64);
+        this.refresh = token(64);
 
         next();
     });
