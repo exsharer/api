@@ -1,10 +1,9 @@
 'use strict';
 
-module.exports = function(Schema, mongoose){
+module.exports = function(Schema){
 
     var Q       = app.utils.q
-    ,   bcrypt  = app.utils.bcrypt
-    ,   salt    = app.config.security.salt;
+    ,   bcrypt  = app.utils.bcrypt;
 
     var UserSchema = new Schema({
         username: {
