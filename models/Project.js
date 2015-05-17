@@ -88,6 +88,19 @@ module.exports = function (Schema, mongoose) {
         });
     };
 
+    ProjectSchema.statics.addProposal = function(id, proposalId) {
+        var Proposal    = mongoose.models.Proposal
+        ,   Project     = mongoose.models.Project
+        ,   _proposal;
+        return Proposal.findById(proposalId).then(function(proposal){
+            _proposal = proposal;
+            return Project.findById(id);
+        }).then(function(project){
+            project.proposals.push(_proposal);
+            return Q.nbind(project.save, project)();
+        });
+    };
+
     ProjectSchema.statics.delete = function(id){
         return Q.nbind(this.findOne, this)({ _id: id }).then(function(project){
             return Q.nbind(project.remove, project)();

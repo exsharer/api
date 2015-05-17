@@ -20,6 +20,9 @@ module.exports = function () {
         addExperience: function(id, experienceId){
             return Project.addExperience(id, experienceId);
         },
+        addProposal: function(id, proposalId){
+            return Project.addProposal(id, proposalId);
+        },
         delete: function (id) {
             return Project.delete(id);
         }
