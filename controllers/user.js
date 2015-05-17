@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(){
 
     var dao     = new app.dao.user()
@@ -14,7 +16,7 @@ module.exports = function(){
                 json.standard(data, res);
             }).catch(next);
         },
-        me: function(req, res, next){
+        me: function(req, res){
             json.standard(req.user, res);
         },
         create: function(req, res, next){

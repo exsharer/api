@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(){
 
     var cors = app.utils.cors,
@@ -13,4 +15,4 @@ module.exports = function(){
 
     app.router = router;
 
-}
+};

@@ -1,9 +1,10 @@
+"use strict";
+
 var bodyParser = require('body-parser');
 
 module.exports = function(){
 
-    var srv = app.express(),
-        log = app.utils.log;
+    var srv = app.express();
 
     srv.use(function(req, res, next){
         res.header(

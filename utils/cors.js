@@ -1,8 +1,9 @@
+"use strict";
+
 module.exports = (function() {
 
-    var log = require ('./log'),
-        pattern = require('route-pattern');
-    var corsEnabled = [];
+    var pattern = require('route-pattern')
+    ,   corsEnabled = [];
 
     function allowCrossDomain(res){
         res.header('Access-Control-Allow-Origin', '*');
@@ -30,12 +31,12 @@ module.exports = (function() {
 
         match: function(req, res, next){
 
-            for(route in corsEnabled){
+            for(var route in corsEnabled){
                 var rt = corsEnabled[route];
                 if(
                     pattern.fromString(rt.url.toLowerCase())
-                        .matches(req.path.toLowerCase())
-                    && req.method == rt.method.toUpperCase()
+                        .matches(req.path.toLowerCase()) &&
+                    req.method == rt.method.toUpperCase()
                 ){
                     allowCrossDomain(res);
                 }
@@ -46,7 +47,7 @@ module.exports = (function() {
 
         matchUrl: function(req, res, next){
 
-            for(route in corsEnabled){
+            for(var route in corsEnabled){
                 var rt = corsEnabled[route];
                 if(pattern.fromString(rt.url).matches(req.path)){
                     allowCrossDomain(res);
@@ -59,6 +60,6 @@ module.exports = (function() {
 
 
 
-    }
+    };
 
 })();

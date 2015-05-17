@@ -10,8 +10,6 @@ module.exports = function(endpoint, client, OAuthPath){
 
     var _endpoint   = endpoint
     ,   _client     = client
-    ,   _headers    = {}
-    ,   _routes     = {}
     ,   _auth       = null;
 
     this.OAuth = function(grant_type, credentials){
@@ -97,8 +95,11 @@ module.exports = function(endpoint, client, OAuthPath){
                 if (body) parameters.body   = body;
                 if (form) parameters.form   = form;
                 if(parameters.body || parameters.form) parameters.headers = {
-                    'Content-Type': form && 'application/x-www-form-urlencoded'
-                    || type || 'application/json'
+                    'Content-Type': (
+                        form && 'application/x-www-form-urlencoded' ||
+                        type ||
+                        'application/json'
+                    )
                 };
                 else parameters.headers = {};
                 if(_auth) parameters.headers.Authorization = format(
@@ -115,7 +116,6 @@ module.exports = function(endpoint, client, OAuthPath){
                             defer.reject(err);
                         }
                     } else {
-                        log.error(res.body);
                         defer.reject(new BoolError(
                             res.statusCode,
                             res.error,

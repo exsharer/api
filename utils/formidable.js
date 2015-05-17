@@ -1,3 +1,5 @@
+"use strict";
+
 var formidable = require('formidable'),
     q = require('q');
 
@@ -14,4 +16,4 @@ module.exports = function(req){
 
     return d.promise;
 
-}
+};

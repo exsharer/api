@@ -1,3 +1,6 @@
+"use strict";
+/* global describe, before, it, expect */
+
 describe('Users module', function(){
 
     var Client  = new app.dao.client()

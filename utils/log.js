@@ -1,3 +1,2 @@
-var log = require("tracer").colorConsole();
-
-module.exports = log;
+"use strict";
+module.exports = require("tracer").colorConsole();

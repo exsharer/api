@@ -1,4 +1,7 @@
-var q = require('q');
+"use strict";
+
+var q   = require('q')
+,   fs  = require('fs');
 
 module.exports = function copyFile(source, target) {
     var defer = q.defer();
@@ -12,7 +15,7 @@ module.exports = function copyFile(source, target) {
     wr.on("error", function(err) {
         done(err);
     });
-    wr.on("close", function(ex) {
+    wr.on("close", function() {
         done();
     });
 

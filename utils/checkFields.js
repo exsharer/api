@@ -1,25 +1,32 @@
+"use strict";
+
 var q = require('q'),
     _ = require('underscore');
 
-function checkAField(required, object, index){
+function checkAField(required, object){
 
-    missingFields = [];
-    
-    for(field in required){
+    var missingFields = [];
 
-        rField = required[field];
-        
+    for(var field in required){
+
+        var rField = required[field];
+
         if(
             !(_.has(object, rField) &&
-            (
-                (object[rField] == 0 || object[rField]) || object[rField] != ""
+                (
+                    (
+                        object[rField] === 0 ||
+                        object[rField]
+                    ) ||
+                    object[rField] !== ""
+                )
             )
-        )) {
+        ) {
             missingFields.push(rField);
         }
 
     }
-    
+
     if(missingFields.length > 0){
 
         throw new BoolError(
@@ -37,8 +44,8 @@ module.exports = function(required, object){
     return q.fcall(function(){
 
         if (_.isArray(object)){
-            for(o in object){
-                return checkAField(required, object[o], o);
+            for(var o in object){
+                return checkAField(required, object[o]);
             }
         } else {
             return checkAField(required, object);
@@ -46,4 +53,4 @@ module.exports = function(required, object){
 
     });
 
-}
+};

@@ -1,3 +1,5 @@
+"use strict";
+
 var _ = require('underscore');
 
 module.exports = function(query){
@@ -10,8 +12,8 @@ module.exports = function(query){
         sort: query.sort
     };
 
-    for(p in projection){
-        if(projection[p] == undefined) delete projection[p];
+    for(var p in projection){
+        if(projection[p] === undefined) delete projection[p];
     }
 
     return {

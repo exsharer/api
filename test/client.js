@@ -1,3 +1,6 @@
+"use strict";
+/* global describe, before, it, Q, expect */
+
 describe("Client module", function(){
 
     var Client  = app.db.Client

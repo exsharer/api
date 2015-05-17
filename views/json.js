@@ -1,6 +1,8 @@
+"use strict";
+
 module.exports = function(){
 
-    var _   = app.utils._;
+    var _  = app.utils._;
 
     function execute(err, data, res){
 
@@ -8,7 +10,7 @@ module.exports = function(){
 
         var obj = {
             success: !err
-        }
+        };
 
         if(err){
             obj.error = _.omit(err, 'status');

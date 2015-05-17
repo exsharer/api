@@ -1,8 +1,8 @@
+"use strict";
+
 module.exports = function(express){
 
-    var log = app.utils.log,
-        passport = app.utils.passport,
-
+    var passport = app.utils.passport,
         approutes = app.routes;
 
     require('./middleware')(express);
@@ -15,19 +15,27 @@ module.exports = function(express){
         res.end();
     });
 
+    var nextMiddleware = function(req, res, next){
+        next();
+    };
+
     for(module in approutes){
 
         var module = new approutes[module]();
 
-        for(route in module){
+        for(var route in module){
             var rt = module[route];
 
             if(rt.cors){
                 cors.registerRoute(rt.url, rt.method);
             }
 
+            var bearerMiddleware = (
+                rt.public && nextMiddleware || passport.authenticate('bearer')
+            );
+
             router[rt.method](rt.url,
-                passport.authenticate('bearer'),
+                bearerMiddleware,
                 rt.action
             );
 

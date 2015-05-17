@@ -1,16 +1,16 @@
-var fs = require('fs'),
-    path = require('path'),
-    mongoose = require('mongoose');
+"use strict";
+
+var fs = require('fs')
+,   mongoose = require('mongoose');
 
 function loadModels(Schema){
 
     var log = app.utils.log,
-        util = app.utils.util,
-        _ = app.utils._;
+        util = app.utils.util;
 
     var files = fs.readdirSync('models', { followLinks: false });
 
-    for(file in files){
+    for(var file in files){
 
         var filename = files[file].split(".");
         var comp = filename[0];
@@ -36,8 +36,7 @@ module.exports = function(){
 
     var dbconfig = app.config.db[process.env.NODE_ENV]
     ,   util = app.utils.util
-    ,   _ = app.utils._
-    ,   log = app.utils.log;
+    ,   _ = app.utils._;
 
     app.db = {};
     loadModels(mongoose.Schema);

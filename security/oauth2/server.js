@@ -1,7 +1,6 @@
-var log     = app.utils.log
+"use strict";
 
-,   Token   = app.dao.token
-,   Client  = app.dao.client
+var Token   = app.dao.token
 ,   User    = app.dao.user;
 
 // Create OAuth 2.0 Authorization Server

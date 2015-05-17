@@ -1,12 +1,12 @@
+"use strict";
+
 var User        = app.dao.user
 ,   Client      = app.dao.client
 ,   Token       = app.dao.token;
 
 var _           = app.utils._
-,   log         = app.utils.log
 ,   passport    = app.utils.passport;
 
-var BasicStrategy           = require('passport-http').BasicStrategy;
 var BearerStrategy          = require('passport-http-bearer').Strategy;
 var ClientPasswordStrategy  = require('passport-oauth2-client-password').Strategy;
 

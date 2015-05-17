@@ -1,4 +1,5 @@
 'use strict';
+/* global -app */
 
 var Q       = require('q')
 ,   app     = require('..')

@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = function(){
 
     global.BoolError = function(status, code, message, uri){
@@ -13,7 +15,7 @@ module.exports = function(){
         }
 
         Error.call(this);
-        Error.captureStackTrace(this, arguments.callee);
+        Error.captureStackTrace(this, BoolError);
         this.name = 'BoolError';
         this.status = status || 500;
         this.code = code || 'server_error';
@@ -25,7 +27,7 @@ module.exports = function(){
     /**
     * Inherit from `Error`.
     */
-    BoolError.prototype.__proto__ = Error.prototype;
+    BoolError.prototype = Error.prototype;
 
     global.EventNotFoundError = function(){
 
@@ -43,8 +45,8 @@ module.exports = function(){
             401,
             "invalid_credentials",
             "invalid_password"
-        )
+        );
 
-    }
+    };
 
-}
+};

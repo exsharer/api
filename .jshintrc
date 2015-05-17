@@ -6,6 +6,9 @@
     "laxcomma": true,
     "predef": [
         "app",
-        "module"
+        "module",
+        "BoolError",
+        "EventNotFoundError",
+        "InvalidPasswordError"
     ]
 }

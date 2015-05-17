@@ -1,4 +1,5 @@
 'use strict';
+/* global -app */
 
 var Q       = require('q')
 ,   app     = require('..')
@@ -8,7 +9,7 @@ var Q       = require('q')
 ,   json    = require('jsonfile')
 ,   User    = app.dao.user;
 
-var mailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+var mailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
 var user    = new User()
 ,   read    = Q.nbind(prompt.get, prompt);

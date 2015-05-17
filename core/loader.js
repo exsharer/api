@@ -1,3 +1,5 @@
+"use strict";
+
 var q               = require('q')
 ,   _               = require('underscore')
 ,   fs              = require('fs')
@@ -58,7 +60,7 @@ function loadComponents(componentName){
 
         var files = fs.readdirSync(componentName, { followLinks: false });
 
-        for(file in files){
+        for(var file in files){
 
             var filename = files[file].split(".");
             var comp = filename[0];
@@ -75,7 +77,7 @@ function loadComponents(componentName){
 
             var exported = require(route);
 
-            var object = _.object([[comp, exported]])
+            var object = _.object([[comp, exported]]);
             component = _.extend(component, object);
         }
 
@@ -100,7 +102,7 @@ function loadConfigs(){
 
     var files = fs.readdirSync(componentName, { followLinks: false });
 
-    for(file in files){
+    for(var file in files){
 
         var filename = files[file].split(".");
         var comp = filename[0];
@@ -117,7 +119,7 @@ function loadConfigs(){
 
         var exported = jsonfile.readFileSync(route);
 
-        var object = _.object([[comp, exported]])
+        var object = _.object([[comp, exported]]);
         component = _.extend(component, object);
     }
 
@@ -142,13 +144,12 @@ module.exports = (function(){
     require("./database")();
     /* */
 
-    for(loader in loaders){
+    for(var loader in loaders){
 
         loader = loaders[loader];
         var obj = loadComponents(loader);
 
-        var ns = _.object([[loader, obj]]);
-        app = _.extend(app, ns);
+        app[loader] = obj;
 
     }
 

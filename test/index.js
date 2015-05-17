@@ -1,3 +1,5 @@
+"use strict";
+
 global.app      = require('..');
 global._        = app.utils._;
 global.Q        = app.utils.q;

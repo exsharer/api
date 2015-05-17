@@ -1,9 +1,11 @@
+"use strict";
+
 module.exports = function(){
 
     var sockets = app.utils.sockets;
     sockets.setAuthorization(app.dao.sockets.authorization);
 
-    for(evtModule in app.events){
+    for(var evtModule in app.events){
 
         var eventModule = app.events[evtModule];
 
@@ -13,7 +15,7 @@ module.exports = function(){
             eventModule.disconnect
         );
 
-        for(evt in eventModule.events){
+        for(var evt in eventModule.events){
             var event = eventModule.events[evt];
             sockets.registerEvent(evtModule, event.tag, event.event);
         }

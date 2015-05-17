@@ -1,3 +1,6 @@
+"use strict";
+/* global describe, before, it, expect */
+
 describe('Proposal module', function(){
 
     var Proposal    = app.db.Proposal
@@ -5,7 +8,7 @@ describe('Proposal module', function(){
 
     describe('DAO level', function(){
 
-        before(function(done){ Proposal.collection.remove(done) });
+        before(function(done){ Proposal.collection.remove(done); });
 
         it('list an empty collection', function(){
             return expect(Dao.list()).to.eventually.have.length(0);
