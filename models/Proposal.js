@@ -47,9 +47,9 @@ module.exports = function (Schema, mongoose) {
     };
 
     ProposalSchema.statics.update = function(id, data){
-        return Q.nbind(this.findOne, this)({ _id: id }).then(function(client){
-            for(var d in data){ if(client[d]) client[d] = data[d]; }
-            return Q.nbind(client.save, client)();
+        return Q.nbind(this.findOne, this)({ _id: id }).then(function(proposal){
+            for(var d in data){ if(proposal[d]) proposal[d] = data[d]; }
+            return Q.nbind(proposal.save, proposal)();
         }).then(function(data){
             return data[0];
         });

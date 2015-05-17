@@ -1,10 +1,9 @@
+/* jshint globals: app */
 "use strict";
 
-module.exports = function (Schema, mongoose) {
+module.exports = function (Schema) {
 
-    var _   = app.utils._
-    ,   Q   = app.utils.q
-    ,   log = app.utils.log
+    var Q   = app.utils.q
     ,   Geo = app.utils.mongoose.geo;
 
     var ProjectSchema = new Schema({
@@ -51,9 +50,9 @@ module.exports = function (Schema, mongoose) {
     };
 
     ProjectSchema.statics.update = function(id, data){
-        return Q.nbind(this.findOne, this)({ _id: id }).then(function(client){
-            for(var d in data){ if(client[d]) client[d] = data[d]; }
-            return Q.nbind(client.save, client)();
+        return Q.nbind(this.findOne, this)({ _id: id }).then(function(project){
+            for(var d in data){ if(project[d]) project[d] = data[d]; }
+            return Q.nbind(project.save, project)();
         }).then(function(data){
             return data[0];
         });
