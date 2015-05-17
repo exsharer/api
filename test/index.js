@@ -10,3 +10,4 @@ global.request  = require('supertest')(app.application);
 
 require('./client');
 require('./user');
+require('./project');
