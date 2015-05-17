@@ -14,7 +14,7 @@ server.exchange(oauth2orize.exchange.password(
 
         User.login(username, password).then(function(user){
             if(!user) return false;
-            Token.token(user._id, client._id).then(function(token){
+            Token.find(user._id, client._id).then(function(token){
                 if(!token) return Token.create(user._id, client._id);
                 return token;
             });
