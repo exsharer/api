@@ -2,7 +2,7 @@
   "name": "exsharer-api",
   "version": "0.0.1",
   "description": "XSharer is an experience sharing platform",
-  "main": "index.js",
+  "main": "exsharer.js",
   "author": {
     "name": "Pablo Andrés Dorado Suárez",
     "mail": "pandres95@boolinc.co",
@@ -18,7 +18,8 @@
     "api"
   ],
   "scripts": {
-    "start": "node index.js",
+    "start": "forever start exsharer.js",
+    "stop": "forever stop exsharer.js",
     "develop": "NODE_ENV=development nodemon",
     "test": "NODE_ENV=test mocha test/index.js --timeout 60000",
     "salt": "node utils/salt.js",
