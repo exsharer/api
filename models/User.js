@@ -47,10 +47,12 @@ module.exports = function(Schema, mongoose){
         }
     });
 
-    UserSchema.pre('save', function(done){ var user = this;
+    UserSchema.pre('save', function(next){ var user = this;
         if(!user.isModified('password')) return next();
 
-        bcrypt.genSalt(salt, function(err, salt){
+        app.utils.log.debug(this);
+
+        bcrypt.genSalt(function(err, salt){
             if(err) return next(err);
 
             bcrypt.hash(user.password, salt, function(err, hash){

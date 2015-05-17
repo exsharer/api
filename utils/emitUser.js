@@ -82,7 +82,7 @@ read(schema).then(function(result){
     console.log("User has been created\n%j", result);
     return json.writeFileSync('user.json', result);
 }, function(err){
-    log.error("Couldn't create client: %s", err.message);
+    log.error("Couldn't create client: %s", err.message, err.stack);
 }).then(function(){
     process.exit();
     return;
