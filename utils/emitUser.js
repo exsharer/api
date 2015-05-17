@@ -4,7 +4,6 @@ var Q       = require('q')
 ,   app     = require('..')
 ,   log     = require('./log')
 ,   sha1    = require('./sha1')
-,   crypto  = require('crypto')
 ,   prompt  = require('prompt')
 ,   json    = require('jsonfile')
 ,   User    = app.dao.user;
