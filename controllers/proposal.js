@@ -2,7 +2,7 @@
 
 module.exports = function(){
 
-    var dao     = new app.dao.project()
+    var dao     = new app.dao.proposal()
     ,   json    = new app.views.json()
     ,   query   = app.utils.mongoose.query;
 
