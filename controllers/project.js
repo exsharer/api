@@ -27,6 +27,10 @@ module.exports = function(){
             resolve((
                 q.proposal !== undefined && dao.addProposal(id, q.proposal) ||
                 q.question !== undefined && dao.addQuestion(id, q.question) ||
+                (
+                    q.experience !== undefined &&
+                    dao.addExperience(id, q.experience)
+                ) ||
                 dao.update(id, req.body)
             ), res, next);
         },
