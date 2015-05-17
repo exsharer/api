@@ -3,9 +3,7 @@ describe("Client module", function(){
     var Client  = app.db.Client
     ,   Dao     = new app.dao.client();
 
-    before(function(done){
-        Client.collection.remove(done);
-    });
+    before(function(done){ Client.collection.remove(done); });
 
     it("list an empty collection", function(done){
         Dao.list().then(function(clients){
@@ -14,14 +12,12 @@ describe("Client module", function(){
         }).catch(done);
     });
 
-    it("creates a client", function(done){
-        Dao.create({
+    it("creates a client", function(){
+        return Dao.create({
             id: "Mambo",
             name: "Mambo Client",
             description: "A dancer Client"
-        }).then(function(client){
-            done();
-        }).catch(done);
+        });
     });
 
     it("list only a client, and should be the newly created", function(done){
