@@ -33,6 +33,18 @@ module.exports = function (Schema) {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
+        ],
+        proposals: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Proposal'
+            }
+        ],
+        questions: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Question'
+            }
         ]
     });
 

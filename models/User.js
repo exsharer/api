@@ -74,7 +74,7 @@ module.exports = function(Schema, mongoose){
     };
 
     UserSchema.statics.findByUsername = function(id){
-        return Q.nbind(this.findOne, this)({ email: id });
+        return Q.nbind(this.findOne, this)({ username: id });
     };
 
     UserSchema.statics.insert = function(user){
