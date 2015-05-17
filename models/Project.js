@@ -1,5 +1,4 @@
-/* jshint globals: app */
-"use strict";
+"use strict"();
 
 module.exports = function (Schema) {
 
@@ -66,4 +65,4 @@ module.exports = function (Schema) {
 
     return ProjectSchema;
 
-}
+};
