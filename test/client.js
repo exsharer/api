@@ -6,9 +6,7 @@ describe("Client module", function(){
     before(function(done){ Client.collection.remove(done); });
 
     it("list an empty collection", function(){
-        return Dao.list().then(function(clients){
-            return expect(clients).to.have.length(0);
-        }).catch(done);
+        return expect(Dao.list()).to.eventually.have.length(0);
     });
 
     it("creates a client", function(){
@@ -19,10 +17,9 @@ describe("Client module", function(){
         });
     });
 
-    it("list only a client, and should be the newly created", function(done){
-        Dao.list().then(function(clients){
-            var client = clients[0];
-            return client;
+    it("list only a client, and should be the newly created", function(){
+        return Dao.list().then(function(clients){
+            return clients[0];
         }).then(function(client){
             return Q.all([
                 client,
@@ -32,19 +29,18 @@ describe("Client module", function(){
         }).spread(function(clientA, clientB, clientC){
             expect(clientA._id).to.eql(clientB._id);
             expect(clientA._id).to.eql(clientC._id);
-            done();
-        }).catch(done);
+            return;
+        });
     });
 
-    it("updates a client's field", function(done){
-        Dao.list().then(function(clients){
+    it("updates a client's field", function(){
+        return Dao.list().then(function(clients){
             return Dao.update(clients[0]._id, {
                 description: "Mambo is No. 5"
             });
         }).then(function(client){
-            expect(client.description).to.eql("Mambo is No. 5");
-            done();
-        }).catch(done);
+            return expect(client.description).to.eql("Mambo is No. 5");
+        });
     });
 
 });
