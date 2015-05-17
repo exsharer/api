@@ -8,6 +8,7 @@ var q               = require('q')
 ,   bcrypt          = require('bcryptjs')
 
 ,   log             = require("../utils/log")
+,   sha1            = require("../utils/sha1")
 ,   cors            = require("../utils/cors")
 ,   hotp            = require('../utils/hotp')
 ,   token           = require('../utils/token')
@@ -35,6 +36,7 @@ var utils = {
 
     cors: cors,
     hotp: hotp,
+    sha1: sha1,
 
     token: token,
     formidable: formidable,
