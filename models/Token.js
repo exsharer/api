@@ -1,10 +1,8 @@
 'use strict';
 
-module.exports = function(Schema, mongoose){
+module.exports = function(Schema){
 
-    var _           = app.utils._
-    ,   Q           = app.utils.q
-    ,   log         = app.utils.log
+    var Q           = app.utils.q
     ,   token       = app.utils.token
     ,   lifetime    = app.config.security.expiresIn;
 
@@ -46,14 +44,6 @@ module.exports = function(Schema, mongoose){
     });
 
     TokenSchema.pre('validate', function(next){
-        var Token = mongoose.models.Token;
-
-        Token.list().then(function(list) {
-            app.utils.log.debug(list);
-        });
-
-        app.utils.log.debug(this);
-
         var date = new Date(this.created);
         date.setSeconds(date.getSeconds() + lifetime);
         this.expires = date;
