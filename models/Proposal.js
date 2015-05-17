@@ -2,7 +2,7 @@
 
 module.exports = function (Schema) {
 
-    var Q   = app.utils.q;
+    var Q = app.utils.q;
 
     var ProposalSchema = new Schema({
         title: {
@@ -62,4 +62,4 @@ module.exports = function (Schema) {
 
     return ProposalSchema;
 
-}
+};

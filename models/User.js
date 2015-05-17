@@ -96,4 +96,4 @@ module.exports = function(Schema, mongoose){
     UserSchema.plugin(app.utils.mongoose.private);
     return UserSchema;
 
-}
+};
