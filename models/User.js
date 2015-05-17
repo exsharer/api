@@ -5,6 +5,11 @@ module.exports = function(Schema, mongoose){
     var salt = app.config.security.salt;
 
     var UserSchema = new Schema({
+        username: {
+            type: String,
+            required: true,
+            index: true
+        },
         email: {
             type: String,
             required: true,
