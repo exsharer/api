@@ -59,7 +59,11 @@ module.exports = function (Schema, mongoose) {
     };
 
     ProjectSchema.statics.findById = function(id){
-        return Q.nbind(this.findOne, this)({ _id: id });
+        var query = this.findOne({ _id: id }).populate([
+            'proposals', 'experiences', 'questions', 'likes'
+        ]);
+
+        return Q.nbind(query.exec, query)();
     };
 
     ProjectSchema.statics.insert = function(project){
