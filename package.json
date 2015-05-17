@@ -18,8 +18,7 @@
         "api"
     ],
     "scripts": {
-        "start": "forever start udi.js",
-        "stop": "forever stop udi.js",
+        "start": "node index.js",
         "develop": "NODE_ENV=development nodemon",
         "test": "NODE_ENV=test mocha test/index.js --timeout 60000",
         "salt": "node utils/salt.js",
