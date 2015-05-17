@@ -21,7 +21,7 @@ module.exports = function(){
                 if(matches) return user;
                 else throw new InvalidPasswordError();
             });
-        }
+        },
         create: function(user){
             return User.insert(user);
         },
