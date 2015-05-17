@@ -9,17 +9,22 @@ module.exports = function(){
             return User.list(query, fields, projection);
         },
         find: function(id, username){
-            return (username != undefined ?
+            return (username !== undefined ?
                 User.findByUsername(username) :
                 User.findById(id)
             );
         },
         login: function (username, password) {
             return User.findByUsername(username).then(function(user){
-                return user.login(password);
-            }).then(function(){
-                if(matches) return user;
-                else throw new InvalidPasswordError();
+                if(!user) throw new BoolError(
+                    403,
+                    "invalid_credentials",
+                    "invalid_user"
+                );
+                return user.login(password).then(function(matches){
+                    if(matches) return user;
+                    else throw new InvalidPasswordError();
+                });
             });
         },
         create: function(user){
