@@ -21,7 +21,7 @@
     "start": "forever start exsharer.js",
     "stop": "forever stop exsharer.js",
     "develop": "NODE_ENV=development nodemon",
-    "test": "NODE_ENV=test mocha test/index.js --timeout 60000",
+    "test": "NODE_ENV=test mocha --exit test/index.js --timeout 60000",
     "salt": "node utils/salt.js",
     "hashes": "node utils/hashes.js",
     "client": "node utils/emitClient.js",
@@ -32,14 +32,14 @@
     "body-parser": "^1.12.3",
     "chance": "^0.6.4",
     "express": "^4.6.1",
-    "forever": "^0.14.1",
+    "forever": "^1.0.0",
     "formidable": "^1.0.15",
     "hashids": "^1.0.1",
     "jsonfile": "^2.0.0",
-    "mongoose": "^4.0.2",
+    "mongoose": "^5.7.7",
     "mongoose-geojson-schema": "0.0.2",
-    "mongoose-paginate": "^3.1.3",
-    "mongoose-private-paths": "^0.6.1",
+    "mongoose-paginate": "^5.0.3",
+    "mongoose-private-paths": "^0.7.0",
     "nodemailer": "^1.3.4",
     "oauth2orize": "^1.0.1",
     "object-injector": "^0.0.2",
@@ -60,7 +60,7 @@
     "chai": "^2.3.0",
     "chai-as-promised": "^5.0.0",
     "expect.js": "^0.3.1",
-    "mocha": "^2.1.0",
+    "mocha": "^6.2.2",
     "progress": "^1.1.8",
     "supertest": "^0.15.0"
   },
@@ -68,18 +68,18 @@
     "node": ">=0.12.0"
   },
   "jshintConfig": {
-      "strict": true,
-      "unused": true,
-      "undef": true,
-      "node": true,
-      "laxcomma": true,
-      "predef": [
-          "app",
-          "module",
-          "BoolError",
-          "EventNotFoundError",
-          "InvalidPasswordError"
-      ]
+    "strict": true,
+    "unused": true,
+    "undef": true,
+    "node": true,
+    "laxcomma": true,
+    "predef": [
+      "app",
+      "module",
+      "BoolError",
+      "EventNotFoundError",
+      "InvalidPasswordError"
+    ]
   },
   "license": "MIT"
 }
